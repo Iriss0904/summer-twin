@@ -49,3 +49,8 @@ class PredictRequest(BaseModel):
 @app.get("/health")
 def health() -> dict[str, Any]:
     return {"status": "ok", "rows_loaded": len(_get().rows)}
+
+
+@app.get("/api/metadata")
+def api_metadata() -> dict[str, Any]:
+    return _get().metadata()

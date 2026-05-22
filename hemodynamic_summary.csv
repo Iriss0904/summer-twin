@@ -1,0 +1,39 @@
+﻿指标名,中文名,英文名,单位,临床意义,计算依据（波形来源）
+体循环压力,,,,,
+SBP,收缩压,Systolic Blood Pressure,mmHg,体动脉收缩期最高压，健康≈120,体动脉近端压力 y (13) 最大值
+DBP,舒张压,Diastolic Blood Pressure,mmHg,体动脉舒张期最低压，健康≈80,体动脉近端压力 y (13) 最小值
+MAP,平均动脉压,Mean Arterial Pressure,mmHg,体动脉平均压力，反映灌注能力,体动脉近端压力 y (13) 梯形积分平均
+PP,脉压差,Pulse Pressure,mmHg,SBP-DBP，反映血管弹性 / 心搏量,SBP - DBP
+肺循环压力,,,,,
+sPAP,肺动脉收缩压,Systolic Pulmonary Arterial Pressure,mmHg,肺动脉收缩期最高压，健康 < 30,肺动脉近端压力 y (19) 最大值
+dPAP,肺动脉舒张压,Diastolic Pulmonary Arterial Pressure,mmHg,肺动脉舒张期最低压，健康 < 15,肺动脉近端压力 y (19) 最小值
+mPAP,平均肺动脉压,Mean Pulmonary Arterial Pressure,mmHg,肺动脉平均压力，反映肺循环负荷,肺动脉近端压力 y (19) 梯形积分平均
+左心室功能（核心泵血指标）,,,,,
+EDV_lv,左室舒张末容积,Left Ventricular End-Diastolic Volume,mL,舒张末期容积，反映前负荷,左心室容积 y (4) 最大值
+ESV_lv,左室收缩末容积,Left Ventricular End-Systolic Volume,mL,收缩末期容积，反映收缩能力,左心室容积 y (4) 最小值
+SV_lv,左室每搏量,Left Ventricular Stroke Volume,mL,每搏泵血量，SV=EDV-ESV,EDV_lv - ESV_lv
+EF_lv,左室射血分数,Left Ventricular Ejection Fraction,%,收缩功能核心指标，健康 > 50%,(SV_lv/EDV_lv)*100
+LVSP,左室收缩压,Left Ventricular Systolic Pressure,mmHg,左室收缩期最高压，反映收缩力,左心室压力 y (5) 最大值
+LVEDP,左室舒张末压,Left Ventricular End-Diastolic Pressure,mmHg,左室舒张末期压力，反映前负荷 / 心肌顺应性,左心室容积 y (4) 最大时对应的 y (5)
+SW_lv,左室每搏做功,Left Ventricular Stroke Work,mmHg·mL,每搏泵血做功，反映心功能,左心室 PV 环（y (4)-y (5)）面积积分
+右心室功能,,,,,
+EDV_rv/ESV_rv,右室舒 / 缩末容积,Right Ventricular End-Diastolic/Systolic Volume,mL,右室前负荷 / 收缩能力,右心室容积 y (10) 最大 / 最小值
+SV_rv/EF_rv,右室每搏量 / 射血分数,Right Ventricular Stroke Volume/Ejection Fraction,mL/%,肺循环泵血能力,SV=EDV-ESV；EF=(SV/EDV)*100
+RVSP/RVDP,右室收 / 舒张压,Right Ventricular Systolic/Diastolic Pressure,mmHg,右室泵血压力 / 舒张负荷,右心室压力 y (11) 最大 / 最小值
+心输出量,,,,,
+CO,心输出量,Cardiac Output,L/min,每分钟泵血量，健康 4~8 L/min,主动脉瓣流量 y (6) 梯形积分平均 ×60/1000
+CO_rv,右心输出量,Right Cardiac Output,L/min,肺循环泵血量，验证左右心平衡,肺动脉瓣流量 y (12) 梯形积分平均 ×60/1000
+HR,实际心率,Actual Heart Rate,bpm,与输入 param.HR 一致,直接取 param.HR
+充盈压（前负荷）,,,,,
+RAP,右房压,Right Atrial Pressure,mmHg,中心静脉压（CVP）近似值，反映右心前负荷,右心房压力 y (8) 积分平均
+LAP,左房压,Left Atrial Pressure,mmHg,肺毛细血管楔压近似值，反映左心前负荷,左心房压力 y (2) 积分平均
+PCWP,肺毛细血管楔压,Pulmonary Capillary Wedge Pressure,mmHg,左心前负荷金标准，临床替代 LAP,直接取 LAP
+血管阻力,,,,,
+SVR,体循环血管阻力,Systemic Vascular Resistance,Wood 单位（mmHg・min/L）,体循环阻力，反映血管负荷,(MAP-RAP)/CO
+PVR,肺循环血管阻力,Pulmonary Vascular Resistance,Wood 单位,肺循环阻力，反映肺高压程度,(mPAP-PCWP)/CO
+SVR_dyn/PVR_dyn,体 / 肺循环阻力动力学单位,-,dyn·s/cm^5,临床常用阻力单位,SVR×80；PVR×80
+静脉压力,,,,,
+mean_Psvn/mean_Ppvn,体 / 肺静脉平均压力,Mean Systemic/Pulmonary Venous Pressure,mmHg,静脉回流负荷,体静脉 y (17)/ 肺静脉 y (23) 积分平均
+瓣膜反流指标（核心新增）,,,,,
+RF_mi/ao/ti/po,二 / 主 / 三 / 肺动脉瓣反流分数,Mitral/Aortic/Tricuspid/Pulmonary Valve Regurgitant Fraction,%,反流程度，值越高反流越严重,（反流量 / 正向流量）×100
+RegVol_mi/ao/ti/po,二 / 主 / 三 / 肺动脉瓣反流量,Mitral/Aortic/Tricuspid/Pulmonary Valve Regurgitant Volume,mL,截取区间总反流量,瓣膜流量反向部分（Q<0）积分绝对值

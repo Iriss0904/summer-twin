@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hemodynamic Prediction Baseline</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Hemodynamic Prediction Baseline</h1>
+        <div id="datasetMeta" class="meta-line">Loading dataset...</div>
+      </div>
+      <div class="controls">
+        <label>
+          Tolerance
+          <input id="toleranceInput" type="number" value="1" step="0.1" min="0" />
+        </label>
+        <label>
+          Top K
+          <input id="topKInput" type="number" value="3" step="1" min="1" max="10" />
+        </label>
+        <button id="predictButton" type="button">Predict</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="section-head">
+          <h2>Known Summary Inputs</h2>
+          <button id="clearInputsButton" type="button" class="secondary">Clear</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Full Name</th>
+                <th>Unit</th>
+                <th>Range</th>
+                <th>Input Value</th>
+              </tr>
+            </thead>
+            <tbody id="inputTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <h2>Prediction Targets</h2>
+          <div class="small-actions">
+            <button id="selectDefaultButton" type="button" class="secondary">sPAP / dPAP</button>
+            <button id="clearOutputsButton" type="button" class="secondary">Clear Selection</button>
+          </div>
+        </div>
+        <div class="table-wrap output-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Select</th>
+                <th>Metric</th>
+                <th>Full Name</th>
+                <th>Unit</th>
+                <th>Range</th>
+              </tr>
+            </thead>
+            <tbody id="outputTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <h2>Results</h2>
+          <div id="runMeta" class="meta-line"></div>
+        </div>
+        <div id="status" class="status">Ready</div>
+        <div id="resultWrap" class="table-wrap"></div>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

@@ -87,3 +87,4 @@ def test_predict_no_inputs_returns_400(client):
         "outputs": ["sPAP"],
     })
     assert response.status_code == 400
+    assert "error" in response.json()

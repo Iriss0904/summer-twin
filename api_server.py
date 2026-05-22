@@ -40,7 +40,8 @@ class PredictRequest(BaseModel):
         description="Known hemodynamic summary values, e.g. {'SBP': 100, 'MAP': 90}"
     )
     outputs: list[str] = Field(
-        description="Summary columns to predict, e.g. ['sPAP', 'dPAP']"
+        min_length=1,
+        description="Summary columns to predict, e.g. ['sPAP', 'dPAP']",
     )
     tolerance: float = Field(default=1.0, ge=0.0)
     top_k: int = Field(default=3, ge=1, le=10)

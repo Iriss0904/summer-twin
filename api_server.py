@@ -54,3 +54,16 @@ def health() -> dict[str, Any]:
 @app.get("/api/metadata")
 def api_metadata() -> dict[str, Any]:
     return _get().metadata()
+
+
+@app.post("/api/predict")
+def api_predict(req: PredictRequest) -> dict[str, Any]:
+    try:
+        return _get().predict(
+            inputs=req.inputs,
+            outputs=req.outputs,
+            tolerance=req.tolerance,
+            top_k=req.top_k,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))

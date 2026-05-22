@@ -60,3 +60,30 @@ def test_predict_top_k_respected(client):
     })
     assert response.status_code == 200
     assert len(response.json()["top"]) <= 2
+
+
+def test_predict_unknown_input_returns_400(client):
+    response = client.post("/api/predict", json={
+        "inputs": {"UNKNOWN_FIELD_XYZ": 100},
+        "outputs": ["sPAP"],
+    })
+    assert response.status_code == 400
+    assert "error" in response.json()
+
+
+def test_predict_output_equals_input_returns_400(client):
+    response = client.post("/api/predict", json={
+        "inputs": {"SBP": 100},
+        "outputs": ["SBP"],
+    })
+    assert response.status_code == 400
+    assert "error" in response.json()
+
+
+def test_predict_no_inputs_returns_400(client):
+    # HemodynamicPredictor raises ValueError for empty inputs → 400
+    response = client.post("/api/predict", json={
+        "inputs": {},
+        "outputs": ["sPAP"],
+    })
+    assert response.status_code == 400
